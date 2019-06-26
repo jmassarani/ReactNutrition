@@ -29,53 +29,23 @@ class FormContainer extends Component {
     handleFormSubmit(e) {
         e.preventDefault()
         const userQuery = e.target.query.value;
-        // this.state.current = (extractNutritionInfo(userQuery))
-        // const data = extractNutritionInfo(userQuery)
-        // extractNutritionInfo(userQuery).map(f => {
-        //     console.log(this.state.current)
-        //     return <FoodView food={f} />
-        // })
-        console.log('submitting')
-        // console.log(data)
-        // this.setState({current: data.then(f => f.map(f => {
-        //     // console.log(this.state.current)
-        //     return f
-        // }))})
-        // apiCall('2 eggs')
+        
+        
         const extractNutritionInfo = async (query) => {
             const relevantInfo = ['nf_calories', 'nf_carbohydrates', 'serving_qty', 'nf_protein', 'nf_cholesterol', 'nf_sugars', 'nf_total_carbohydrate', 'photo', 'food_name', 'nf_total_fat']
             const response = await apiCall(query);
-            console.log(response)
             const allFood = response
             this.setState({current: allFood.map(food => {
                 return <FoodView key={food.food_name} food ={pick(food, relevantInfo)} />;
               })})
             }
             
-          
-          
-        // const resolvedData = data.then(f => f.map(f => {
-        //     // console.log(this.state.current)
-
-        //     return <FoodView food={f} />
-        // }))
-        // this.setState({ current: resolvedData })
-        // // forEach(data, f => {
-        // //         // console.log(this.state.current)
-        // //         console.log(f)
-        // // return this.render( <FoodView food={f} /> )})
-
-
-
-        // // this.state.query = '';
-        // console.log(this.state.current)
         extractNutritionInfo(userQuery)
     }
     handleClearForm() {
     }
 
     render() {
-        const flag = this.state.current
         return (
             <Container>
                 <Form onSubmit={this.handleFormSubmit}>
@@ -85,12 +55,7 @@ class FormContainer extends Component {
                     <Button color="primary" disabled={this.state.query === ''} type="submit" variant="raised">Submit</Button>
                 </Form>
                
-                {/* {this.state.current ? this.state.current.then(f => {
-                    console.log(f)
-                    f.map(g => 
-                         (<FoodView food={g} />)
-                    )
-                }) : console.log('FAIL')}} */}
+                
                 {this.state.current}
 
             </Container>
