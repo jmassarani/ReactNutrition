@@ -23,20 +23,15 @@ const apiCall = query => {
 }
 
 
-const extractNutritionInfo = query => {
+const extractNutritionInfo = async (query) => {
   const relevantInfo = ['nf_calories', 'nf_carbohydrates', 'serving_qty', 'nf_protein', 'nf_cholesterol', 'nf_sugars', 'nf_total_carbohydrate', 'photo', 'food_name', 'nf_total_fat']
-  const nutrition = apiCall(query).then(response => {
-    return response.json()
-  }).then(allFood => {
-    return allFood.foods.map(
-      food => {
-        console.log(food)
-        return pick(food, relevantInfo)
-
-      })
-  })
-  console.log(nutrition)
-  return nutrition
+  const response = await apiCall(query);
+  const allFood = await response.json();
+  return allFood.foods.map(food => {
+    console.log(pick(food, relevantInfo));
+    return pick(food, relevantInfo);
+  });
+  
 
 }
 
