@@ -1,15 +1,7 @@
 import Container from 'muicss/lib/react/container'
 import React from 'react'
 import {Card, ListGroup, ListGroupItem} from 'react-bootstrap'
-// const relevantInfo = ['nf_calories', 'serving_qty', 'nf_protein', 'nf_cholesterol', 'nf_sugars', 'nf_total_carbohydrate', 'photo', 'food_name']
-// const mapping = {
-//     nf_calories: 'calories',
-//     nf_total_carboydrate: 'total carbohydrates',
-//     nf_protein: 'protein',
-//     nf_cholesterol: 'cholesterol',
-//     nf_sugars: 'sugar'
 
-// }
 const FoodView = (food) => {
     food = food.food;
     return (
