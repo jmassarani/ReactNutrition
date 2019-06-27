@@ -1,4 +1,4 @@
-
+This is a react app that can process natural language about a meal you just had and return useful nutritional information. For example. Wanted to get familiar with react so made this.
 ## Available Scripts
 
 In the project directory, you can run:
