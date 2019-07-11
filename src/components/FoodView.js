@@ -10,7 +10,7 @@ const FoodView = (food) => {
             <Card.Body>
                 <Card.Title>{food.food_name}</Card.Title>
                 <Card.Text>
-                    Servings: {food.serving_qty}
+                    Servings: {food.serving_qty} {food.serving_unit} ({food.serving_weight_grams} g)
     </Card.Text>
             </Card.Body>
             <ListGroup className="list-group-flush">

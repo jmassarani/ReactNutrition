@@ -32,7 +32,7 @@ class FormContainer extends Component {
         
         
         const extractNutritionInfo = async (query) => {
-            const relevantInfo = ['nf_calories', 'nf_carbohydrates', 'serving_qty', 'nf_protein', 'nf_cholesterol', 'nf_sugars', 'nf_total_carbohydrate', 'photo', 'food_name', 'nf_total_fat']
+            const relevantInfo = ['nf_calories', 'nf_carbohydrates', 'serving_qty', 'nf_protein', 'nf_cholesterol', 'nf_sugars', 'nf_total_carbohydrate', 'photo', 'food_name', 'nf_total_fat', 'serving_unit', 'serving_weight_grams']
             const response = await apiCall(query);
             const allFood = response
             this.setState({current: allFood.map(food => {
